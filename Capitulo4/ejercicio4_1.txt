@@ -1,0 +1,11 @@
+/*Ejercicios 4.1*/
+
+
+a) Repetición Definida
+b) Repeticion Indefinida
+c) Contador
+d) Continue
+e) break
+f) switch
+
+

@@ -1,0 +1,8 @@
+/*Ejercicio 4.2*/
+
+
+a) Falso
+b) Falso
+c) Falso
+d) Verdadero
+
