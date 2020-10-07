@@ -1,0 +1,44 @@
+/*Tablas de verdad*/
+
+
+
+Condición1                Condición2              Condición1 && Condición2
+0                         0                       0
+0                         diferente de cero       0      
+diferente de cero         0                       0
+diferente de cero         diferene de cero        diferente de cero
+
+
+Donde se debe enternder que:   0                   : Falso
+                               diferente de cero   : Verdadero
+
+-----------------------------------  // -----------------------------------
+
+Condición1                Condición2              Condición1 || Condición2
+0                         0                       0
+0                         diferente de cero       diferente de cero
+diferente de cero         0                       diferente de cero
+diferente de cero         diferene de cero        diferente de cero
+
+
+Donde se debe enternder que:   0                   : Falso
+                               diferente de cero   : Verdadero
+
+
+----------------------------------- // -------------------------------------
+
+Condición1                !Condición1             
+0                         1                       
+1                         0
+
+----------------------------------- // -------------------------------------
+
+Donde se debe enternder que:   0                   : Falso
+                               diferente de cero   : Verdadero
+
+
+
+
+
+
+
