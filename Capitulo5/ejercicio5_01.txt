@@ -1,0 +1,21 @@
+
+a) Función
+b) Llamada a una función
+c) Local
+d) return
+e) void
+f) número o valor
+g) 
+h)
+i) rand
+j) srand
+k) static, auto, register, extern
+l) auto
+m) register
+n) global
+o) static
+p) alcance de: funcion, bloque, archivo, prototipo de funcion
+q) recursiva
+r) base,
+
+
