@@ -4,9 +4,9 @@ b) Llamada a una función
 c) Local
 d) return
 e) void
-f) número o valor
-g) 
-h)
+f) alcance
+g) return, return expresion, fin con la }.
+h) Prototipo de funcion
 i) rand
 j) srand
 k) static, auto, register, extern

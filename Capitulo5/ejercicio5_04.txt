@@ -1,0 +1,9 @@
+
+float hipotenusa(float lado1, float lado2)
+int elMenor(int x, int y, int z)
+void instrucciones()
+float intAfloat(int numero)
+
+
+
+

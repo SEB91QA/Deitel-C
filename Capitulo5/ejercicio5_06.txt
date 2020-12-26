@@ -1,0 +1,5 @@
+
+register int cuenta = 0;
+static float ultValor;  
+static int numero;
+

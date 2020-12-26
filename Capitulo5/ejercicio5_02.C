@@ -1,14 +1,14 @@
 #include<stdio.h>
 
 
-int cubo( int y );                //Variable de alcance de prototipo de función
+int cubo( int y );                //Variable de alcance de archivo: Bloque
                                   //Variable de alcance de bloque
 
 int main()                        //Variable de alcance de archivo
 {
 
 
-   int x;                         //Variable de alcance de función
+   int x;                         //Variable de alcance de bloque
 
    for( x = 1; x <= 10; x++ )
    {
@@ -23,7 +23,7 @@ int main()                        //Variable de alcance de archivo
 }
 
 
-int cubo( int y )
+int cubo( int y )                 
 {
 
 
