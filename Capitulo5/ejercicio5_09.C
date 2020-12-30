@@ -16,43 +16,41 @@ int main()
    float horas1;
    float horas2;
    float horas3;
+   float horast;
+
 
    float importe1;
    float importe2;
    float importe3;
-
    float importetotal;
 
 
    /*Primer automóvil*/
 
-   printf("Por favor incluir las horas del primer automovil: ");
+   printf("Por favor incluir las horas del primer automóvil: ");
    scanf("%f", &horas1);
 
-   importe1 = calculaImporte(horas1);
 
-   printf("\nLas primeras horas son: %.2f\n", importe1);
-
-
-   printf("\nPor favor incluir las horas del segundo automovil: ");
+   printf("\nPor favor incluir las horas del segundo automóvil: ");
    scanf("%f", &horas2);
 
-   importe2 = calculaImporte(horas2);
-
-   printf("\nLas segundas horas son: %.2f\n", importe2);
-
-
-   printf("\nPor favor incluir las horas del tercer automovil: ");
+   printf("\nPor favor incluir las horas del tercer automóvil: ");
    scanf("%f", &horas3);
 
+
+   importe1 = calculaImporte(horas1);
+   importe2 = calculaImporte(horas2);
    importe3 = calculaImporte(horas3);
 
-   printf("\n Las terceras horas son: %.2f\n", importe3 ); 
-
-
+   horast = horas1 + horas2 + horas3;
    importetotal = importe1 + importe2 + importe3;
 
-   printf("El importe total es: %.2f", importetotal);
+   printf("%4s%21s%28s\n", "Automóvil", "Horas", "Importe" );
+   printf("%s%29.1f%28.2f\n", "1", horas1, importe1);
+   printf("%s%29.1f%28.2f\n", "2", horas2, importe2);
+   printf("%s%29.1f%28.2f\n", "3", horas3, importe3);   
+   printf("Total %24.1f%28.2f\n", horast, importetotal);
+
 
 /*
 
