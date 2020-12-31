@@ -1,0 +1,12 @@
+/*Respuesta a las preguntas*/
+
+
+a) Cada vez que se ejecuta el programa se genera un número diferente en cierto intervalo.
+b) La función rand ayuda a simular procesos aleatorios y se utiliza para depurar el programa.
+c) srand randomiza el programa y se usa luego de depurar el programa.
+d) Para adecuar procesos a un intervalo de valores que se requieran.
+e) Ayuda a simular procesos aleatorios.
+
+
+
+
