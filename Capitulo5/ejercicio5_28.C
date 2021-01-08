@@ -35,13 +35,24 @@ int invertido( int numero )
    while( potencia >= 1 )
    {    
       
-      suma += (numero/potencia) * (orden);
-
-
-      numero = numero%potencia;
-      potencia = potencia/10;
-      orden = orden*10;
+      if( numero < potencia )
+      {
  
+         potencia = potencia/10;
+
+      }
+
+      else
+      {
+
+         suma += (numero/potencia) * (orden);
+
+
+         numero = numero%potencia;
+         potencia = potencia/10;
+         orden = orden*10;
+ 
+      }
 
    }
 
