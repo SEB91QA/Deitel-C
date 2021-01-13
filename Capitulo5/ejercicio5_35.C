@@ -10,31 +10,24 @@
 
 
 
+bool correcto( int num1, int num2 );
+
 
 
 int main()
 {
-
    
 
    srand( time( NULL ) );
   
 
    int respuesta;
-   int cont;
-
-   //char s;   
-   //char cont;
+   char cont;
 
 
+   printf("Bienvenido a adivina un número\n\n");
 
-   printf("Bienvenido a adivina un número\n");
-   printf("Presiona 1 para continuar o 0 para salir\n\n\n");
-   scanf("%d", &cont);
-
-
-   while( cont == 1 )
-   {
+   do{                                  /* '' encierra variables de tipo char */
 
       int numero = 1 + rand() % 10;
 
@@ -44,42 +37,79 @@ int main()
       printf("Por favor escribe tu primera respuesta\n");
 
       scanf("%d", &respuesta);
-       
-      while( respuesta != numero )
+      
+      while( !correcto( numero, respuesta ) )
       {
 
- 
-         if( respuesta < numero )
-         {
+         scanf("%d", &respuesta);
 
-            printf("Muy abajo. Intenta de nuevo.\n");
-            scanf("%d", &respuesta);
-
-         }
-
-         if( respuesta > numero )
-         {
-
-            printf("Muy arriba. Intenta de nuevo.\n");
-            scanf("%d", &respuesta);  
-
-         }
-
-
-      }
-
+      } 
+         
 
       printf("¡Excelente!. ¡Adivinaste el número!\n");
-      printf("Quieres jugar otra vez (¿s o n?)(1 ó 0)\n");
-      scanf("%d", &cont);
+      printf("Quieres jugar otra vez (¿s o n?)\n");
+      
+      scanf(" %c", &cont);
 
-   }
+      printf("\n");                   /*Dejar el espacio para scanf una variable de tipo char para ignorar el espacio*/ 
+
+
+   } while( cont == 's' );
+
+   printf("Gracias por juegar\n");
+
 
    return 0;
 
 
 
 }
+
+
+
+bool correcto( int num1, int num2 )
+{
+
+   bool correct;
+
+   if( num2 == num1 )
+   {
+     
+      correct = true;
+
+   }
+
+
+   if( num2 < num1 )
+   {
+
+      printf("Muy abajo. Intenta de nuevo.\n");
+      correct = false;
+
+   }
+
+   if( num2 > num1 )
+   {
+
+      printf("Muy arriba. Intenta de nuevo.\n");
+      correct = false;
+
+   }
+
+
+   return correct;
+
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
