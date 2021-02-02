@@ -1,4 +1,4 @@
-/*Juego de craps con las apuestas*/
+/*Juego de craps apostando*/
 
 
 
@@ -18,26 +18,110 @@ enum Estatus {CONTINUA, GANA, PIERDE};
 
 int tiradados(void); 
 
+void mensajes(void);
+
+float juego( float saldo);
 
 
-int main()
+
+int main(){
+
+   float resultado;
+
+   float saldoban = 1000.0;
+
+   resultado = juego( saldoban );
+
+
+   return 0;
+
+}
+
+
+
+
+
+
+
+
+int tiradados(void)
 {
 
-   float saldoBanco = 1000;
-   float apuesta;
 
+   int dado1;
+   int dado2;
+   int sumaTemp;
+
+
+   dado1 = 1 + ( rand() % 6);
+   dado2 = 1 + ( rand() % 6);
+   sumaTemp = dado1 + dado2;
+
+   printf("El jugador tiro %d + %d = %d\n", dado1, dado2, sumaTemp);
+
+
+   return sumaTemp;
+
+} 
+
+
+void mensajes(void){
+
+
+   switch( rand() % 3 ){
+
+      case 1:
+         printf("mhm.., parece que va a la quiebra");
+         break;
+
+      case 2:
+         printf("¡Ande, atrévase!");
+         break;
+
+
+      case 3:
+         printf("“¡Ya estás grande, ahora es el momento de arriesgarse!”");
+         break;
+
+
+   }
+
+
+
+}
+
+
+float juego(float saldo){
+
+
+   float apuesta;
 
    printf("Bienvenido al juego de craps apostando\n\n");
 
+   printf("Tu saldo es de: %f", saldo);
+
    printf("Introduzca el valor de la apuesta: ");
    scanf("%f", &apuesta); 
-
 
 
    int suma;                     
    int mipunto;                  
 
    enum Estatus estatusJuego;   
+
+
+   while( apuesta < saldo){
+
+
+      printf("Por favor introduce de nuevo la apuesta\n");
+      scanf("%f", &apuesta);
+
+
+   }
+
+
+
+   printf("Tu apuesta es de %f", apuesta);
 
    
    srand( time( NULL ) );
@@ -46,7 +130,6 @@ int main()
 
    switch( suma )
    {
-
 
       case 7:
       case 11:
@@ -74,8 +157,7 @@ int main()
 
       suma = tiradados();
       
-      if( suma == mipunto )
-      {
+      if( suma == mipunto ){
 
          estatusJuego = GANA;
 
@@ -88,7 +170,7 @@ int main()
          if( suma == 7 )
          { 
                
-            estatusJuego = PIERDE;
+             estatusJuego = PIERDE;
 
          }
 
@@ -97,10 +179,15 @@ int main()
    }
 
 
+
    if( estatusJuego == GANA )
    {
 
-      printf("El jugador gana\n");
+      printf("Felicitaciones has ganado esta partida\n");
+      saldo = saldo + apuesta;
+   
+      printf("Tu nuevo saldo es de: %f", saldo);
+
 
    }
 
@@ -108,36 +195,50 @@ int main()
    else
    {
 
-      printf("El jugador pierde\n");
+      printf("Que mal has perdido la partida\n");
+      saldo = saldo - apuesta;
+
+      printf("Tu nuevo saldo es de: %f", saldo);
 
    }
 
 
-   return 0;
+   return saldo;
+
+
 
 }
 
 
 
-int tiradados(void)
-{
 
 
-   int dado1;
-   int dado2;
-   int sumaTemp;
 
 
-   dado1 = 1 + ( rand() % 6);
-   dado2 = 1 + ( rand() % 6);
-   sumaTemp = dado1 + dado2;
-
-   printf("El jugador tiro %d + %d = %d\n", dado1, dado2, sumaTemp);
 
 
-   return sumaTemp;
 
-} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
