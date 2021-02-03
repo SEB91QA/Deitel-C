@@ -28,9 +28,34 @@ int main(){
 
    float resultado;
 
-   float saldoban = 1000.0;
+   float saldoban = 1000;
+
+   int continuar;
+
+   printf("Bienvenido al juego de craps apostando\n\n");
 
    resultado = juego( saldoban );
+
+   while( resultado > 0 ){
+
+      printf("Si deseas seguir jugando teclea 1 o 0 para salir: \n");
+      scanf("%d", &continuar);
+
+      if( continuar == 1 ){
+
+         resultado = juego(resultado);            
+
+      }
+
+      else{
+
+         printf("Gracias por jugar\n");
+         break;
+       
+      }
+
+
+   }
 
 
    return 0;
@@ -71,16 +96,16 @@ void mensajes(void){
    switch( rand() % 3 ){
 
       case 1:
-         printf("mhm.., parece que va a la quiebra");
+         printf("mhm.., parece que va a la quiebra\n");
          break;
 
       case 2:
-         printf("¡Ande, atrévase!");
+         printf("¡Ande, atrévase!\n");
          break;
 
 
       case 3:
-         printf("“¡Ya estás grande, ahora es el momento de arriesgarse!”");
+         printf("“¡Ya estás grande, ahora es el momento de arriesgarse!\n”");
          break;
 
 
@@ -96,12 +121,15 @@ float juego(float saldo){
 
    float apuesta;
 
-   printf("Bienvenido al juego de craps apostando\n\n");
+   printf("Vamos a jugar!\n");
 
-   printf("Tu saldo es de: %f", saldo);
+   printf("Tu saldo es de: %.1f\n", saldo);
 
    printf("Introduzca el valor de la apuesta: ");
    scanf("%f", &apuesta); 
+
+
+   printf("\n");
 
 
    int suma;                     
@@ -113,7 +141,7 @@ float juego(float saldo){
    while( apuesta < saldo){
 
 
-      printf("Por favor introduce de nuevo la apuesta\n");
+      printf("\nPor favor introduce de nuevo la apuesta: ");
       scanf("%f", &apuesta);
 
 
@@ -121,7 +149,7 @@ float juego(float saldo){
 
 
 
-   printf("Tu apuesta es de %f", apuesta);
+   printf("Tu apuesta es de: %.1f\n\n", apuesta);
 
    
    srand( time( NULL ) );
@@ -183,11 +211,13 @@ float juego(float saldo){
    if( estatusJuego == GANA )
    {
 
+      printf("\n");
+
       printf("Felicitaciones has ganado esta partida\n");
       saldo = saldo + apuesta;
    
-      printf("Tu nuevo saldo es de: %f", saldo);
-
+      printf("Tu nuevo saldo es de: %.1f\n", saldo);
+      mensajes();
 
    }
 
@@ -195,10 +225,19 @@ float juego(float saldo){
    else
    {
 
+      printf("\n");
+
       printf("Que mal has perdido la partida\n");
       saldo = saldo - apuesta;
+      mensajes();
 
-      printf("Tu nuevo saldo es de: %f", saldo);
+      if( saldo <= 0 ){
+
+         saldo = 0;
+         printf("Tu nuevo saldo es de: %.1f\n", saldo);
+         printf("Lo siento. ¡Su saldo se agoto!\n");
+         
+      }
 
    }
 
