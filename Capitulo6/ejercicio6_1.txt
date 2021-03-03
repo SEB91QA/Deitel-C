@@ -1,0 +1,12 @@
+a) Arreglos
+b) tipo, Nombre
+c) Subíndice
+d) Constante Simbólica
+e) Ordenamiento
+f) Clave de búsqueda
+g) Con dos subíndices
+
+
+
+
+
