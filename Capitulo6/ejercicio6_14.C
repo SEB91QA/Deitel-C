@@ -2,7 +2,7 @@
 
 
 #include<stdio.h>
-#define TAMANIO 99
+#define TAMANIO 100
 
 
 void media( const int resp[] );
@@ -19,15 +19,15 @@ int main(){
 
    int respuesta[ TAMANIO ] = 
       { 6, 7, 8, 9, 8, 7, 8, 9, 8, 9, 
-        7, 8, 9, 5, 9, 8, 7, 8, 7, 8, 
-        6, 7, 8, 9, 3, 9, 8, 7, 8, 7, 
-        7, 8, 9, 8, 9, 8, 9, 7, 8, 9, 
+        7, 8, 9, 5, 9, 8, 7, 8, 7, 1, 
+        6, 7, 8, 9, 3, 9, 8, 7, 1, 7, 
+        7, 8, 9, 8, 9, 8, 9, 7, 1, 9, 
         6, 7, 8, 7, 8, 7, 9, 8, 9, 2,
         7, 8, 9, 8, 9, 8, 9, 7, 5, 3,
         5, 6, 7, 2, 5, 3, 9, 4, 6, 4,
-        7, 8, 9, 6, 8, 7, 8, 9, 7, 8,
+        7, 8, 9, 6, 8, 7, 8, 9, 7, 1,
         7, 4, 4, 2, 5, 3, 8, 7, 5, 6,
-        4, 5, 6, 1, 6, 5, 7, 8, 7 };  
+        4, 5, 6, 1, 6, 5, 7, 8, 7, 9 };  
 
 
    media( respuesta );
@@ -84,10 +84,10 @@ void mediana( int resp[] ){
    imprimeArreglo( resp );
 
 
-   printf("\n\nLa mediana es el elemento %d del\n"
-          "arreglo ordenado de elementos %d.\n"
+   printf("\n\nLa mediana es el promedio del elemento %d y elemento %d del\n"
+          "arreglo ordenado de %d elementos.\n"
           "Para esta ejecución la mediana es %d\n\n"
-          , TAMANIO/2, TAMANIO, resp[ TAMANIO / 2]);
+          , TAMANIO/2, TAMANIO/2 + 1, TAMANIO, (resp[ TAMANIO / 2] + resp[(TAMANIO/2) + 1 ] )/2 );
 
 }
 
@@ -96,10 +96,15 @@ void moda( int frec[], const int resp[] ){
 
 
    int rango;
+   int segundo; 
+
    int j;
    int h;
+
    int masGrande = 0;
    int valorModa = 0;
+
+   bool caso = false;
 
 
    printf("\n%s\n%s\n%s\n",
@@ -135,7 +140,7 @@ void moda( int frec[], const int resp[] ){
          valorModa = rango; 
 
       }
-
+       
 
       for( h = 1; h <= frec[ rango ]; h++ ){
 
@@ -148,10 +153,40 @@ void moda( int frec[], const int resp[] ){
    }
 
 
-   printf("La moda es el valor más frecuente.\n"
-          "Para esta ejecución la moda es %d el cual ocurrio"
-          "  %d veces.\n", valorModa, masGrande);
+   for( rango = 1; rango <= 9; rango++ ){
 
+      if( rango == valorModa ){
+
+         continue; 
+
+      }
+
+      if( frec[ rango ] == masGrande ){
+
+         segundo = rango;
+         caso = true;         
+
+      }
+
+   }
+
+
+   if( caso == true ){
+
+      printf("Tenemos dos modas para los valores %d y %d las cuales ocurren %d veces.", valorModa, segundo, masGrande);
+
+
+   }
+   
+   
+   else{
+
+      printf("La moda es el valor más frecuente.\n"
+             "Para esta ejecución la moda es %d el cual ocurrio"
+             "  %d veces.\n", valorModa, masGrande);
+
+
+   }
 
 }
 
