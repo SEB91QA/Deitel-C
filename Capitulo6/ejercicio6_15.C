@@ -15,13 +15,14 @@ int main(){
       
    int i;
    int j;
+
    
  
 
    for( i = 0; i < TAMANIO; i++ ){
 
 
-      printf("Por favor digite el número: ");
+      printf("\nPor favor digite el número: ");
       scanf("%d", &a[ i ]);
       
       
@@ -32,7 +33,7 @@ int main(){
       for( j = 0; j <= i; j++ ){
 
 
-         if( a[ j ] == a[ i ] ){
+         if( a[ i ] == a[ j ] && i != j ){
              
             contador += 1;
             break;
@@ -51,7 +52,7 @@ int main(){
       if( contador == 0){
 
          
-         printf("\nEl nuevo número es: %d\n", a[ i ]);
+         printf("El nuevo número es: %d\n", a[ i ]);
 
       }
 
@@ -61,6 +62,33 @@ int main(){
    printf("\nLa lista total es: \n");
 
    lista( a );
+
+   printf("\nLa lista sin repetir es: \n");
+
+   for( i = 0; i < TAMANIO; i++ ){
+      
+      bool repite = false;  
+
+      for( j = 0; j <= i; j++ ){
+
+         if( a[ i ] == a[ j ] && i != j ){
+
+            repite = true;
+
+         } 
+      
+
+      }
+
+      if( repite == false ){
+
+
+         printf("%4d", a[ i ]);
+
+      }
+
+
+   }
 
    return 0;
 
