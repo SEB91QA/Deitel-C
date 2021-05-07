@@ -1,33 +1,36 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#define TAMANIO 21
 
 
-bool craps( void );
-
-
-
-enum Estatus {CONTINUA, GANA, PIERDE};
-
-
-
-bool craps( void ){
-
-enum Estatus {CONTINUA, GANA, PIERDE};
+/*Funciones de craps y de tiraDados*/
 
 int tiraDados( void );
 
+
+enum Estatus {CONTINUA, GANA, PIERDE};
+
+
 int main(){
 
+   srand( time(NULL) );
+   
+   int frecuencia[ TAMANIO ] = { 0 };
+   int fre;
 
+   for( int i = 1; i <= 1000; i++ ){
+
+   int tiraDados( void );
+
+
+   int numero = 1;
    int suma;
    int miPunto;
 
 
    enum Estatus estatusjuego;
 
-
-   srand( time(NULL) );
 
    suma = tiraDados();
 
@@ -37,7 +40,8 @@ int main(){
 
       case 7:   
       case 11:
-         estatusjuego = GANA;   
+         estatusjuego = GANA;
+         //numero = 1;   
 
       case 2:
       case 3:
@@ -54,10 +58,10 @@ int main(){
    }
 
 
-      while (estatusjuego == CONTINUA ){
+    while (estatusjuego == CONTINUA ){
 
-
-         suma = tiraDados();
+       numero += 1;
+       suma = tiraDados();
 
          if (suma == miPunto) {
 
@@ -71,6 +75,7 @@ int main(){
 
 
                estatusjuego = PIERDE;
+               numero = 0;
 
             }
 
@@ -80,25 +85,67 @@ int main(){
       }
 
 
-      if( estatusjuego == GANA ){
+       if( estatusjuego == GANA ){
 
-         printf("El jugador gana\n");
+          printf("El jugador gana\n");
+          printf("Ganó luego de %d tiros\n", numero);
 
+
+       }
+
+       else{
+
+          numero = 0;
+          printf("El jugador pierde\n");
+
+       }
+
+     
+                   
+
+
+      if( fre >= 20){
+   
+         ++frecuencia[ 20 ];
 
       }
 
       else{
 
-         printf("El jugador pierde\n");
+         ++frecuencia[ fre ];
 
       }
 
+   }   
+
+
+   printf("\n");
+
+   for ( int j = 1; j < TAMANIO; j++ ){
+
+
+     if( j == 20 ){
+
+        printf("Se ganan %d juegos después del tiro 20", frecuencia[ 20 ]);
+
+
+     }
+
+     else{
+
+        printf("Se ganan %d juegos en el tiro %d\n", frecuencia[ j ], j );   
+
+
+     }
+
+   }
 
 
    return 0;
 
-
 }
+
+   
 
 
 
@@ -122,20 +169,4 @@ int tiraDados( void ){
    return sumaTemp;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
 
