@@ -42,14 +42,13 @@ int main(){
          silla = asientoazar( clase );
          ++asientos[ silla ];
 
-
          printf("Pase de abordar\n\n");
          printf("*************************************\n");
          printf("Silla %d\n", silla);
          printf("\t\tClase: Primera Clase\n");
          printf("*************************************\n");
 
-      }
+     }
 
       else{
 
@@ -61,6 +60,8 @@ int main(){
          printf("Silla %d\n", silla);
          printf("\t\tClase: Económica\n");
          printf("*******************************\n");
+         printf("\n");
+
 
       }
    
